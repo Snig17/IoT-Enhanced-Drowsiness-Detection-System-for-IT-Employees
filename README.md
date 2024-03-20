@@ -7,7 +7,7 @@ Our project introduces an innovative solution to enhance the productivity and we
 ![image](https://github.com/Snig17/IoT-Enhanced-Drowsiness-Detection-System-for-IT-Employees/assets/127118518/25d568db-da90-4ab6-9da9-0d1ac7fd865d)
 
 # Methodology
-##The methodologies used in this code are as follows:
+## The methodologies used in this code are as follows:
 
 ### a) Eye Aspect Ratio (EAR):
 
@@ -53,3 +53,70 @@ Uses the espeak command-line tool to generate spoken alerts for additional audit
 Sends signals to an Arduino board connected via serial communication to trigger external actions (such as turning on a fan) based on detected events.
 Uses the PySerial library to establish communication with the Arduino board and send data over the serial port.
 
+# Implementation
+
+### Step-1 : Setup Hardware:
+
+Acquire necessary hardware components including a webcam for video input and an Arduino board for interfacing with external devices.
+
+### Step-2: Install Dependencies:
+
+Install required libraries and dependencies including OpenCV, dlib, imutils, Pygame, and PySerial.
+
+### Step-3: Define Constants and Thresholds:
+
+Set thresholds for eye aspect ratio (EAR), consecutive frames for drowsiness detection, and yawning distance threshold.
+
+### Step-4: Load Models:
+
+Load the pre-trained Haar Cascade classifier for face detection and dlib's shape predictor model for facial landmark detection.
+
+### Step-5:Initialize Video Stream:
+
+Start the video stream from the webcam using OpenCV or imutils.
+
+### Step-6: Main Loop:
+
+Continuously capture frames from the video stream.
+
+### Step-7:Face Detection:
+
+Use the Haar Cascade classifier to detect faces in each frame.
+Draw bounding boxes around detected faces.
+
+### Step-8: Facial Landmark Detection:
+
+For each detected face, use the shape predictor to locate facial landmarks such as eyes and lips.
+Calculate the eye aspect ratio (EAR) and lip distance for drowsiness and yawning detection, respectively.
+
+### Step-9: Eye Blink Detection:
+
+If the calculated EAR falls below the threshold for a certain number of consecutive frames, trigger a drowsiness alert.
+Play an alarm sound and send a signal to the Arduino board to activate external alerts (e.g., LED lights or a buzzer).
+
+### Step-10:Yawn Detection:
+
+If the lip distance exceeds the predefined threshold, trigger a yawn alert.
+Play an alarm sound and send a signal to the Arduino board for external alerts.
+
+### Step- 11: Multithreading for Alerts:
+
+Utilize multithreading to handle concurrent tasks such as playing audio alerts and sending signals to the Arduino board.
+
+### Step-12: Terminate Program:
+
+Allow the user to terminate the program by pressing a designated key (e.g., 'q’).
+
+### Step-13: Cleanup:
+
+Release video stream resources and close any open windows before terminating the program.
+
+### Step-14: Arduino Integration:
+
+Establish serial communication with the Arduino board and send appropriate signals based on detected events (e.g., drowsiness or yawning).
+Implement Arduino code to receive signals and trigger external alerts or actions.
+
+### Step-15: Testing and Optimization:
+
+Test the system with different scenarios and adjust thresholds or parameters for optimal performance.
+Optimize the code for efficiency and reliability, considering factors such as frame rate and processing speed.
