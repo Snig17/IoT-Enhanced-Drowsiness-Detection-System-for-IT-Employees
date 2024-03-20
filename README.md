@@ -123,3 +123,19 @@ Optimize the code for efficiency and reliability, considering factors such as fr
 
 
 # RESULTS:-
+
+### Fig-1: Prototype Interface
+![image](https://github.com/Snig17/IoT-Enhanced-Drowsiness-Detection-System-for-IT-Employees/assets/127118518/31bb50fc-4f1c-4d90-a0f4-7a1705ae9046)
+
+### Fig-2: Drowsiness detected
+![image](https://github.com/Snig17/IoT-Enhanced-Drowsiness-Detection-System-for-IT-Employees/assets/127118518/e3908577-61d8-4ca0-babb-7cb77a0989dd)
+
+### Fig-3: Drowsiness alert
+![image](https://github.com/Snig17/IoT-Enhanced-Drowsiness-Detection-System-for-IT-Employees/assets/127118518/782c50cb-eccc-46cc-9a9d-4bf33a3747c4)
+
+### Fig-4: RF transmitter
+![image](https://github.com/Snig17/IoT-Enhanced-Drowsiness-Detection-System-for-IT-Employees/assets/127118518/9be2e59b-3864-4fe2-841c-faa869a5f50c)
+
+### Fig-5: Wrist band with RF receiver and vibrator
+![image](https://github.com/Snig17/IoT-Enhanced-Drowsiness-Detection-System-for-IT-Employees/assets/127118518/055b95ac-fda3-4c50-9636-0517ed9335f1)
+
