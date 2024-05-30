@@ -139,7 +139,7 @@ Optimize the code for efficiency and reliability, considering factors such as fr
 ### Fig-5: Wrist band with RF receiver and vibrator
 ![image](https://github.com/Snig17/IoT-Enhanced-Drowsiness-Detection-System-for-IT-Employees/assets/127118518/7a4c2314-0023-4699-81e6-41b8a19f3f79)
 
-# Conclusion
+# Conclusion:-
 Our IoT-Enhanced Drowsiness Detection System represents a significant step towards optimizing productivity and ensuring a healthy work environment for IT professionals. By combining AI, IoT, and wearable technology, we offer a practical solution to a common workplace challenge, with potential for further advancements and integration into various industries.
 
 
