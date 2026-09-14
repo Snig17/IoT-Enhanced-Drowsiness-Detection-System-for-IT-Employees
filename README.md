@@ -9,6 +9,9 @@ Our project introduces an innovative solution to enhance the productivity and we
 - **`drowsiness_yawn.py`** — webcam-only demo. No extra hardware needed, just a webcam. Run: `python drowsiness_yawn.py`
 - **`drowsiness_yawn2.py`** — full IoT version with Arduino wristband integration over serial (COM3 by default). Requires the physical hardware setup described below.
 
+## Note on model file
+`shape_predictor_68_face_landmarks.dat` is not included in this repo (exceeds GitHub's file size limit). Download it from the [dlib-models repository](https://github.com/davisking/dlib-models), extract the `.bz2` file, and place it in the project folder before running.
+
 
 # SYSTEM ARCHITECTURE:-
 ![image](https://github.com/Snig17/IoT-Enhanced-Drowsiness-Detection-System-for-IT-Employees/assets/127118518/25d568db-da90-4ab6-9da9-0d1ac7fd865d)
@@ -59,6 +62,12 @@ Uses the espeak command-line tool to generate spoken alerts for additional audit
 
 Sends signals to an Arduino board connected via serial communication to trigger external actions (such as turning on a fan) based on detected events.
 Uses the PySerial library to establish communication with the Arduino board and send data over the serial port.
+
+# REQUIREMENTS:-
+- A webcam
+- Python 3.6–3.9 recommended. `dlib` can be difficult to install via pip on newer Python versions without a C++ compiler — installing via `conda install -c conda-forge dlib` in a dedicated environment is the most reliable approach on Windows.
+- `haarcascade_frontalface_default.xml` and `alarm.wav` are included in this repo. `shape_predictor_68_face_landmarks.dat` is not (see note above) — download it separately.
+- For `drowsiness_yawn2.py` only: an Arduino board connected via serial port (COM3 by default — update in code if different).
 
 # IMPLEMENTATION:-
 
