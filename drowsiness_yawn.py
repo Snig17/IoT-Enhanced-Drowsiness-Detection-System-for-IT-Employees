@@ -1,4 +1,4 @@
-#python drowsiness_yawn2.py --webcam webcam_index
+#python drowsiness_yawn.py --webcam webcam_index
 
 from scipy.spatial import distance as dist
 from imutils.video import VideoStream
@@ -12,12 +12,7 @@ import dlib
 import cv2
 import os
 from pygame import mixer
-import serial
 
-arduino = serial.Serial('COM3', 9600)
-time.sleep(2)
-
-# this is used to get beep sound (when person closes his eyes for more than 10 sec)
 mixer.init()
 alarm_sound = mixer.Sound('alarm.wav')
 
@@ -126,7 +121,7 @@ while True:
 
         if ear < EYE_AR_THRESH:
             COUNTER += 1
-            # eye blink alert
+
             if COUNTER >= EYE_AR_CONSEC_FRAMES:
                 if alarm_status == False:
                     alarm_status = True
@@ -135,41 +130,33 @@ while True:
                     t.start()
 
                 cv2.putText(frame, "DROWSINESS ALERT!", (10, 30),
-                            cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 0, 255), 2)
-
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
                 try:
                     alarm_sound.play()
-                    print("2 data is sent")
-                    arduino.write(b'2')
                 except Exception as e:
-                    print(f"Alarm/Arduino signal failed: {e}")
+                    print(f"Alarm sound failed: {e}")
 
         else:
             COUNTER = 0
             alarm_status = False
 
-        # yawn alert
         if distance > YAWN_THRESH:
             cv2.putText(frame, "Yawn Alert", (10, 30),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
-
             try:
                 alarm_sound.play()
-                print("1 data is sent")
-                arduino.write(b'1')
             except Exception as e:
-                print(f"Alarm/Arduino signal failed: {e}")
+                print(f"Alarm sound failed: {e}")
 
             if alarm_status2 == False and saying == False:
                 alarm_status2 = True
                 t = Thread(target=alarm, args=('take some fresh air sir',))
                 t.daemon = True
                 t.start()
-
         else:
             alarm_status2 = False
 
-        cv2.putText(frame, "EYE: {:.2f}".format(ear), (300, 30),
+        cv2.putText(frame, "EAR: {:.2f}".format(ear), (300, 30),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
         cv2.putText(frame, "YAWN: {:.2f}".format(distance), (300, 60),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
